@@ -5,6 +5,10 @@ Utility module to strip special white spaces.
 
 SuperStrip provides another lstrip, rstrip, strip functions.
 
+[![Build Status](https://travis-ci.org/pompopo/super_strip.svg?branch=master)](https://travis-ci.org/pompopo/super_strip)
+[![Gem Version](https://badge.fury.io/rb/super_strip.svg)](https://badge.fury.io/rb/super_strip)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 ## Installation
 
 Add this line to your application's Gemfile:
