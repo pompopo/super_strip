@@ -1,23 +1,24 @@
 require 'super_strip/version'
 
-# Utility module to remove special white spaces
-module SuperStrip
-  class << self
-    def lstrip(str)
-      str.split('').drop_while do |point|
-        WHITE_SPACES.include?(point)
-      end.join
-    end
-
-    def rstrip(str)
-      lstrip(str.reverse).reverse
-    end
-
-    def strip(str)
-      lstrip(rstrip(str))
-    end
+# Special version of strip methods to remove special white spaces
+class String
+  def super_lstrip
+    split('').drop_while do |point|
+      SuperStrip::WHITE_SPACES.include?(point)
+    end.join
   end
 
+  def super_rstrip
+    reverse.super_lstrip.reverse
+  end
+
+  def super_strip
+    super_lstrip.super_rstrip
+  end
+end
+
+# define special white spaces
+module SuperStrip
   WHITE_SPACES = %W(
     \u0009
     \u0020

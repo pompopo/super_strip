@@ -5,24 +5,26 @@ describe SuperStrip do
     expect(SuperStrip::VERSION).not_to be nil
   end
 
-  let(:spaces) { SuperStrip::WHITE_SPACES.join }
-  let(:str) { "#{spaces}a#{spaces}b#{spaces}" }
+  describe 'String' do
+    let(:spaces) { SuperStrip::WHITE_SPACES.join }
+    let(:str) { "#{spaces}a#{spaces}b#{spaces}" }
 
-  describe '.lstrip' do
-    it 'removes spaces right side' do
-      expect(SuperStrip.lstrip(str)).to eq("a#{spaces}b#{spaces}")
+    describe '#super_lstrip' do
+      it 'removes spaces right side' do
+        expect(str.super_lstrip).to eq("a#{spaces}b#{spaces}")
+      end
     end
-  end
 
-  describe '.rstrip' do
-    it 'removes spaces right side' do
-      expect(SuperStrip.rstrip(str)).to eq("#{spaces}a#{spaces}b")
+    describe '#super_rstrip' do
+      it 'removes spaces right side' do
+        expect(str.super_rstrip).to eq("#{spaces}a#{spaces}b")
+      end
     end
-  end
 
-  describe '.strip' do
-    it 'removes spaces left side and right side' do
-      expect(SuperStrip.strip(str)).to eq("a#{spaces}b")
+    describe '#super_strip' do
+      it 'removes spaces left side and right side' do
+        expect(str.super_strip).to eq("a#{spaces}b")
+      end
     end
   end
 end
