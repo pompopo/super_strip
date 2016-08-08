@@ -38,7 +38,7 @@ str3.super_rstrip! #=> ' string'
 str3 #=> ' string'
 ```
 
-If you want to remove all spaces in string, you can use `SuperStrip::WHITE_SPACES` constant.
+If you want to delete all spaces in string, you can use `SuperStrip::WHITE_SPACES` constant.
 ```
 ' s t r i n g '.delete SuperStrip::WHITE_SPACES.join #=> 'string'
 ```
