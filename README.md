@@ -1,9 +1,7 @@
 # SuperStrip
 
-Utility module to strip special white spaces.
-`String#strip` removes white spaces in string, but not special white spaces for example `\u3000` (commonly used in Japanese), `\u3164` (HANGUL FILLER).
-
-SuperStrip provides another lstrip, rstrip, strip functions.
+Another version of strip methods to strip special white spaces.
+`String#strip` removes white spaces in string, but not special white spaces for example `\u3000` (IDEOGRAPHIC SPACE, commonly used in Japanese), `\u3164` (HANGUL FILLER).
 
 [![Build Status](https://travis-ci.org/pompopo/super_strip.svg?branch=master)](https://travis-ci.org/pompopo/super_strip)
 [![Gem Version](https://badge.fury.io/rb/super_strip.svg)](https://badge.fury.io/rb/super_strip)
@@ -21,9 +19,28 @@ gem 'super_strip'
 
 ```
 str = '　string　'
-SuperStrip.strip(str) #=> 'string'
-SuperStrip.lstrip(str) #=> 'string　'
-SuperStrip.rstrip(str) #=> '　string'
+str.super_strip #=> 'string'
+str.super_lstrip #=> 'string　'
+str.super_rstrip #=> '　string'
+
+# destructive methods
+# These return nil if no spaces are removed
+str1 = str.dup
+str1.super_strip! #=> 'string'
+str1 #=> 'string'
+
+str2 = str.dup
+str2.super_lstrip! #=> 'string '
+str2 #=> 'string '
+
+str3 = str.dup
+str3.super_rstrip! #=> ' string'
+str3 #=> ' string'
+```
+
+If you want to remove all spaces in string, you can use `SuperStrip::WHITE_SPACES` constant.
+```
+' s t r i n g '.delete SuperStrip::WHITE_SPACES.join #=> 'string'
 ```
 
 ## Development

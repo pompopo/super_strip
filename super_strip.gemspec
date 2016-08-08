@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['pompopo']
   spec.email         = ['pompopo@gmail.com']
 
-  spec.summary       = 'Utility module to strip special white spaces.'
-  spec.description   = 'SuperStrip provides another lstrip, rstrip, strip functions.'
+  spec.summary       = 'Provide another version of strip methods to strip special white spaces.'
+  spec.description   = 'SuperStrip provides another version of lstrip, rstrip, strip, lstrip!, rstrip!, strip! functions. They can remove special white spaces such as `IDEOGRAPHIC SPACE`.'
   spec.homepage      = 'https://github.com/pompopo/super_strip'
   spec.license       = 'MIT'
 
