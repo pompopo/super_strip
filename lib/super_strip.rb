@@ -15,6 +15,27 @@ class String
   def super_strip
     super_lstrip.super_rstrip
   end
+
+  def super_lstrip!
+    do_change(:super_lstrip)
+  end
+
+  def super_rstrip!
+    do_change(:super_rstrip)
+  end
+
+  def super_strip!
+    do_change(:super_strip)
+  end
+
+  private
+
+  def do_change(method)
+    after = send(method)
+    changed = self != after
+    replace(after)
+    self if changed
+  end
 end
 
 # define special white spaces
